@@ -16,11 +16,18 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-
-    - name: Build Debug APK with Gradle
-      run: ./gradlew assembleDebug
+    - name: Find and Build with Gradle
+      run: |
+        if [ -f "./gradlew" ]; then
+          chmod +x gradlew
+          ./gradlew assembleDebug
+        elif [ -f "./gradlew.bat" ]; then
+          ./gradlew.bat assembleDebug
+        else
+          echo "Gradlew not found in root, searching..."
+          find . -name "gradlew" -exec chmod +x {} \;
+          find . -name "gradlew" -exec {} assembleDebug \;
+        fi
 
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
