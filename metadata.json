@@ -1,0 +1,6 @@
+{
+  "name": "محاسبك الشخصي - KMA",
+  "description": "تطبيق إدارة مالية شخصية متكامل بواجهة عربية لإدارة الحسابات، المصروفات، الدخل، الديون والأقساط، والادخار بدقة مالية عالية وحماية بيومترية - A KMA Product.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
